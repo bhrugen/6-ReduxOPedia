@@ -18,17 +18,17 @@ const counterSlice = createSlice({
     incrementMultipler: (state, action) => {
       state.count += Number(action.payload);
     },
-    resetCounter: (state) => {
+    // resetCounter: (state) => {
+    //   state.count = 15;
+    // },
+  },
+  extraReducers: (builder) => {
+    builder.addCase("destination/resetDestination", (state, action) => {
       state.count = 15;
-    },
+    });
   },
 });
 
-export const {
-  increment,
-  decrement,
-  decrementMultipler,
-  incrementMultipler,
-  resetCounter,
-} = counterSlice.actions;
+export const { increment, decrement, decrementMultipler, incrementMultipler } =
+  counterSlice.actions;
 export const counterReducer = counterSlice.reducer;
